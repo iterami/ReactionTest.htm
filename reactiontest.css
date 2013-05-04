@@ -1,0 +1,13 @@
+body{
+    padding-top:23px;
+    text-align:center
+}
+div{
+    border:1px solid #444;
+    display:inline-block;
+    height:250px;
+    width:250px
+}
+input{
+    cursor:pointer
+}

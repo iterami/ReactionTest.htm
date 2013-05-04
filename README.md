@@ -1,2 +1,1 @@
-ReactionTest
-============
+A simple tool for testing your reaction time. Simply click the start button (or press H) and click the same button (or press ESC) once the square changes color. Your best time is saved in localStorage.
