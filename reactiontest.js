@@ -7,47 +7,54 @@ function random_number(i){
 function reset(){
     if(confirm('Reset best?')){
         ls.removeItem('reactiontest-best');
-        get('best').innerHTML=''
+        get('best').innerHTML = ''
     }
 }
 function start(){
-    start_time=new Date().getTime();
-    change_time=999+random_number(9000);
-    get('thediv').style.background='#fff';
-    timer=setTimeout("get('thediv').style.background='#'+(4+random_number(5))+''+(4+random_number(5))+''+(4+random_number(5))",change_time);
-    get('start_button').value='Click when the Color Changes (ESC)';
-    get('start_button').onclick=function(){stop()}
+    start_time = new Date().getTime();
+    change_time = 999+random_number(9000);
+
+    get('thediv').style.background = '#fff';
+
+    timer = setTimeout("get('thediv').style.background='#'+(4+random_number(5))+''+(4+random_number(5))+''+(4+random_number(5))",change_time);
+    get('start_button').value = 'Click when the Color Changes (ESC)';
+    get('start_button').onclick = function(){stop()}
 }
 function stop(){
-    if(timer!=0){
-        i=-(change_time-(new Date().getTime()-start_time));
+    if(timer!==0){
+        i = -(change_time-(new Date().getTime()-start_time));
         clearTimeout(timer);
-        if(i>0&&(best==0||i<best)){
-            best=i;
+        if(i>0 && (best===0 || i<best)){
+            best = i;
             ls.setItem('reactiontest-best',best);
-            get('best').innerHTML='+'+best+'ms'
+            get('best').innerHTML = '+'+best+'ms'
         }
-        get('result').innerHTML=i>0?'+'+i+'ms':'Too soon :(';
+        get('result').innerHTML = i>0 ? '+'+i+'ms' : 'Too soon :(';
         timer=0
     }
-    get('start_button').value='Start Timer (H)';
-    get('start_button').onclick=function(){start()}
+    get('start_button').value = 'Start Timer (H)';
+    get('start_button').onclick = function(){start()}
 }
-var best=change_time=i=start_time=timer=0,
-ls=window.localStorage;
+var best = 0;
+var change_time = 0;
+var i = 0;
+var ls = window.localStorage;
+var start_time = 0;
+var timer = 0;
 
+/*fetch best from localStorage, if it exists*/
 if(ls.getItem('reactiontest-best')!==null){
-    best=ls.getItem('reactiontest-best');
-    get('best').innerHTML='+'+best+'ms'
+    best = ls.getItem('reactiontest-best');
+    get('best').innerHTML = '+'+best+'ms'
 }
 
 window.onkeydown=function(e){
-    i=window.event?event:e;
-    i=i.charCode?i.charCode:i.keyCode;
-    if(i==72){/*H*/
+    i = window.event?event:e;
+    i = i.charCode?i.charCode:i.keyCode;
+    if(i===72){/*H*/
         stop();
         start()
-    }else if(i==27){/*ESC*/
+    }else if(i===27){/*ESC*/
         stop()
     }
 }
