@@ -57,7 +57,7 @@ if(ls.getItem('reactiontest-best') !== null){
     get('best').innerHTML = '+' + best + 'ms'
 }
 
-window.onkeydown=function(e){
+window.onkeydown = function(e){
     i = window.event ? event : e;
     i = i.charCode ? i.charCode : i.keyCode;
     if(i === 72){/*H*/
