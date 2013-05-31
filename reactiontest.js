@@ -60,6 +60,7 @@ if(ls.getItem('reactiontest-best') !== null){
 window.onkeydown = function(e){
     i = window.event ? event : e;
     i = i.charCode ? i.charCode : i.keyCode;
+
     if(i === 72){/*H*/
         stop();
         start()
