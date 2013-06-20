@@ -1,19 +1,19 @@
 function div_color(){
-    get('thediv').style.background = '#' + (4 + random_number(5)) + '' + (4 + random_number(5)) + '' + (4 + random_number(5))
+    get('thediv').style.background = '#' + (4 + random_number(5)) + '' + (4 + random_number(5)) + '' + (4 + random_number(5));
 }
 
 function get(i){
-    return document.getElementById(i)
+    return document.getElementById(i);
 }
 
 function random_number(i){
-    return Math.floor(Math.random() * i)
+    return Math.floor(Math.random() * i);
 }
 
 function reset(){
     if(confirm('Reset best?')){
         ls.removeItem('reactiontest-best');
-        get('best').innerHTML = ''
+        get('best').innerHTML = '';
     }
 }
 
@@ -25,23 +25,32 @@ function start(){
 
     timer = setTimeout('div_color()',change_time);
     get('start_button').value = 'Click when the Color Changes (ESC)';
-    get('start_button').onclick = function(){stop()}
+    get('start_button').onclick = function(){
+        stop();
+    };
 }
 
 function stop(){
     if(timer !== 0){
         i = -(change_time - (new Date().getTime() - start_time));
         clearTimeout(timer);
+
         if(i > 0 && (best === 0 || i < best)){
             best = i;
-            ls.setItem('reactiontest-best',best);
-            get('best').innerHTML = '+' + best + 'ms'
+            ls.setItem(
+                'reactiontest-best',
+                best
+            );
+            get('best').innerHTML = '+' + best + 'ms';
         }
+
         get('result').innerHTML = i > 0 ? '+' + i + 'ms' : 'Too soon :(';
-        timer = 0
+        timer = 0;
     }
     get('start_button').value = 'Start Timer (H)';
-    get('start_button').onclick = function(){start()}
+    get('start_button').onclick = function(){
+        start();
+    };
 }
 
 var best = 0;
@@ -54,7 +63,7 @@ var timer = 0;
 /*fetch best from localStorage, if it exists*/
 if(ls.getItem('reactiontest-best') !== null){
     best = ls.getItem('reactiontest-best');
-    get('best').innerHTML = '+' + best + 'ms'
+    get('best').innerHTML = '+' + best + 'ms';
 }
 
 window.onkeydown = function(e){
@@ -63,8 +72,9 @@ window.onkeydown = function(e){
 
     if(i === 72){/*H*/
         stop();
-        start()
+        start();
+
     }else if(i === 27){/*ESC*/
-        stop()
+        stop();
     }
 }
