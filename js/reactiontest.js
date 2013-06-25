@@ -1,5 +1,5 @@
 function div_color(){
-    get('thediv').style.background = '#' + (4 + random_number(5)) + '' + (4 + random_number(5)) + '' + (4 + random_number(5));
+    get('thediv').style.background = '#' + (4 + random_number(5)) + (4 + random_number(5)) + (4 + random_number(5));
 }
 
 function get(i){
@@ -23,7 +23,7 @@ function start(){
 
     get('thediv').style.background = '#fff';
 
-    timer = setTimeout('div_color()',change_time);
+    timer = setTimeout('div_color()', change_time);
     get('start_button').value = 'Click when the Color Changes (ESC)';
     get('start_button').onclick = function(){
         stop();
@@ -47,6 +47,7 @@ function stop(){
         get('result').innerHTML = i > 0 ? '+' + i + 'ms' : 'Too soon :(';
         timer = 0;
     }
+
     get('start_button').value = 'Start Timer (H)';
     get('start_button').onclick = function(){
         start();
