@@ -61,7 +61,7 @@ var ls = window.localStorage;
 var start_time = 0;
 var timer = 0;
 
-/*fetch best from localStorage, if it exists*/
+// fetch best from localStorage, if it exists
 if(ls.getItem('reactiontest-best') !== null){
     best = ls.getItem('reactiontest-best');
     get('best').innerHTML = '+' + best + 'ms';
@@ -71,11 +71,11 @@ window.onkeydown = function(e){
     i = window.event ? event : e;
     i = i.charCode ? i.charCode : i.keyCode;
 
-    if(i === 72){/*H*/
+    if(i === 72){// H
         stop();
         start();
 
-    }else if(i === 27){/*ESC*/
+    }else if(i === 27){// ESC
         stop();
     }
 }
