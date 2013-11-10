@@ -12,7 +12,7 @@ function random_number(i){
 
 function reset(){
     if(confirm('Reset best?')){
-        ls.removeItem('reactiontest-best');
+        window.localStorage.removeItem('reactiontest-best');
         get('best').innerHTML = '';
     }
 }
@@ -20,10 +20,10 @@ function reset(){
 function start(){
     start_time = new Date().getTime();
     change_time = 999 + random_number(9000);
+    timer = setTimeout('div_color()', change_time);
 
     get('thediv').style.background = '#fff';
 
-    timer = setTimeout('div_color()', change_time);
     get('start_button').value = 'Click when the Color Changes (ESC)';
     get('start_button').onclick = function(){
         stop();
@@ -32,12 +32,12 @@ function start(){
 
 function stop(){
     if(timer !== 0){
-        i = -(change_time - (new Date().getTime() - start_time));
+        var i = -(change_time - (new Date().getTime() - start_time));
         clearTimeout(timer);
 
         if(i > 0 && (best === 0 || i < best)){
             best = i;
-            ls.setItem(
+            window.localStorage.setItem(
                 'reactiontest-best',
                 best
             );
@@ -56,26 +56,24 @@ function stop(){
 
 var best = 0;
 var change_time = 0;
-var i = 0;
-var ls = window.localStorage;
 var start_time = 0;
 var timer = 0;
 
 // fetch best from localStorage, if it exists
-if(ls.getItem('reactiontest-best') !== null){
-    best = ls.getItem('reactiontest-best');
+if(window.localStorage.getItem('reactiontest-best') !== null){
+    best = window.localStorage.getItem('reactiontest-best');
     get('best').innerHTML = '+' + best + 'ms';
 }
 
 window.onkeydown = function(e){
-    i = window.event ? event : e;
-    i = i.charCode ? i.charCode : i.keyCode;
+    var key = window.event ? event : e;
+    key = key.charCode ? key.charCode : key.keyCode;
 
-    if(i === 72){// H
+    if(key === 72){// H
         stop();
         start();
 
-    }else if(i === 27){// ESC
+    }else if(key === 27){// ESC
         stop();
     }
 }
