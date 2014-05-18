@@ -1,13 +1,9 @@
 function div_color(){
     document.getElementById('thediv').style.background =
       '#'
-      + (4 + random_number(5))
-      + (4 + random_number(5))
-      + (4 + random_number(5));
-}
-
-function random_number(i){
-    return Math.floor(Math.random() * i);
+      + (4 + Math.floor(Math.random() * 5))
+      + (4 + Math.floor(Math.random() * 5))
+      + (4 + Math.floor(Math.random() * 5));
 }
 
 function reset(){
@@ -19,24 +15,28 @@ function reset(){
 
 function start(){
     start_time = new Date().getTime();
-    change_time = 999 + random_number(9000);
-    timer = setTimeout('div_color()', change_time);
+    change_time = 999 + Math.floor(Math.random() * 9000);
+    timer = setTimeout(
+      'div_color()',
+      change_time
+    );
 
     document.getElementById('thediv').style.background = '#fff';
 
-    document.getElementById('start_button').value = 'Click when the Color Changes [ESC]';
     document.getElementById('start_button').onclick = function(){
         stop();
     };
+    document.getElementById('start_button').value = 'Click when the Color Changes [ESC]';
 }
 
 function stop(){
     if(timer !== 0){
-        var i = -(change_time - (new Date().getTime() - start_time));
+        var final_time = -(change_time - (new Date().getTime() - start_time));
         clearTimeout(timer);
 
-        if(i > 0 && (best === 0 || i < best)){
-            best = i;
+        if(final_time > 0
+          && (best === 0 || final_time < best)){
+            best = final_time;
             window.localStorage.setItem(
               'reactiontest-best',
               best
@@ -44,16 +44,16 @@ function stop(){
             document.getElementById('best').innerHTML = '+' + best + 'ms';
         }
 
-        document.getElementById('result').innerHTML = i > 0
-          ? '+' + i + 'ms'
+        document.getElementById('result').innerHTML = final_time > 0
+          ? '+' + final_time + 'ms'
           : 'Too soon :(';
         timer = 0;
     }
 
-    document.getElementById('start_button').value = 'Start Timer [H]';
     document.getElementById('start_button').onclick = function(){
         start();
     };
+    document.getElementById('start_button').value = 'Start Timer [H]';
 }
 
 var best = 0;
