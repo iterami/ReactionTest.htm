@@ -78,4 +78,4 @@ window.onkeydown = function(e){
     }else if(key === 27){// ESC
         stop();
     }
-}
+};
