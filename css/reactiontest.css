@@ -1,4 +1,6 @@
 body{
+    background: #000;
+    color: #aaa;
     padding-top: 23px;
     text-align: center;
 }
@@ -9,5 +11,7 @@ div{
     width: 250px;
 }
 input{
+    background: #000;
+    color: #aaa;
     cursor: pointer;
 }

@@ -21,7 +21,7 @@ function start(){
       change_time
     );
 
-    document.getElementById('thediv').style.background = '#fff';
+    document.getElementById('thediv').style.background = '#000';
 
     document.getElementById('start_button').onclick = function(){
         stop();
