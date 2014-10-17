@@ -8,7 +8,7 @@ function div_color(){
 
 function reset(){
     if(confirm('Reset best?')){
-        window.localStorage.removeItem('reactiontest-best');
+        window.localStorage.removeItem('ReactionTest.htm-best');
         document.getElementById('best').innerHTML = '';
     }
 }
@@ -38,7 +38,7 @@ function stop(){
           && (best === 0 || final_time < best)){
             best = final_time;
             window.localStorage.setItem(
-              'reactiontest-best',
+              'ReactionTest.htm-best',
               best
             );
             document.getElementById('best').innerHTML = '+' + best + 'ms';
@@ -62,8 +62,8 @@ var start_time = 0;
 var timer = 0;
 
 // fetch best from localStorage, if it exists
-if(window.localStorage.getItem('reactiontest-best') !== null){
-    best = window.localStorage.getItem('reactiontest-best');
+if(window.localStorage.getItem('ReactionTest.htm-best') !== null){
+    best = window.localStorage.getItem('ReactionTest.htm-best');
     document.getElementById('best').innerHTML = '+' + best + 'ms';
 }
 
