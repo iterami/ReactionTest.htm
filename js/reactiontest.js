@@ -61,7 +61,7 @@ var change_time = 0;
 var start_time = 0;
 var timer = 0;
 
-// fetch best from localStorage, if it exists
+// Fetch best from window.localStorage, if it exists.
 if(window.localStorage.getItem('ReactionTest.htm-best') !== null){
     best = window.localStorage.getItem('ReactionTest.htm-best');
     document.getElementById('best').innerHTML = '+' + best + 'ms';
@@ -71,11 +71,13 @@ window.onkeydown = function(e){
     var key = window.event ? event : e;
     key = key.charCode ? key.charCode : key.keyCode;
 
-    if(key === 72){// H
+    // H: restart current game.
+    if(key === 72){
         stop();
         start();
 
-    }else if(key === 27){// ESC
+    // ESC: stop current game.
+    }else if(key === 27){
         stop();
     }
 };
