@@ -7,10 +7,12 @@ function div_color(){
 }
 
 function reset(){
-    if(confirm('Reset best?')){
-        window.localStorage.removeItem('ReactionTest.htm-best');
-        document.getElementById('best').innerHTML = '';
+    if(!confirm('Reset best?')){
+        return;
     }
+
+    window.localStorage.removeItem('ReactionTest.htm-best');
+    document.getElementById('best').innerHTML = '';
 }
 
 function start(){
