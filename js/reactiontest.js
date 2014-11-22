@@ -70,8 +70,7 @@ if(window.localStorage.getItem('ReactionTest.htm-best') !== null){
 }
 
 window.onkeydown = function(e){
-    var key = window.event ? event : e;
-    key = key.charCode ? key.charCode : key.keyCode;
+    var key = e.keyCode || e.which;
 
     // H: restart current game.
     if(key === 72){
