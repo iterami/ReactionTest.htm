@@ -63,12 +63,6 @@ var change_time = 0;
 var start_time = 0;
 var timer = 0;
 
-// Fetch best from window.localStorage, if it exists.
-if(window.localStorage.getItem('ReactionTest.htm-best') !== null){
-    best = window.localStorage.getItem('ReactionTest.htm-best');
-    document.getElementById('best').innerHTML = '+' + best + 'ms';
-}
-
 window.onkeydown = function(e){
     var key = e.keyCode || e.which;
 
@@ -80,5 +74,13 @@ window.onkeydown = function(e){
     // ESC: stop current game.
     }else if(key === 27){
         stop();
+    }
+};
+
+window.onload = function(e){
+    // Fetch best from window.localStorage, if it exists.
+    if(window.localStorage.getItem('ReactionTest.htm-best') !== null){
+        best = window.localStorage.getItem('ReactionTest.htm-best');
+        document.getElementById('best').innerHTML = '+' + best + 'ms';
     }
 };
