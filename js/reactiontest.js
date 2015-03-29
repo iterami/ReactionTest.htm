@@ -7,7 +7,7 @@ function div_color(){
 }
 
 function reset(){
-    if(!confirm('Reset best?')){
+    if(!window.confirm('Reset best?')){
         return;
     }
 
