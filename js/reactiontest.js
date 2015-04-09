@@ -18,7 +18,7 @@ function reset(){
 function start(){
     start_time = new Date().getTime();
     change_time = 999 + Math.floor(Math.random() * 9000);
-    timer = setTimeout(
+    timer = window.setTimeout(
       'div_color()',
       change_time
     );
