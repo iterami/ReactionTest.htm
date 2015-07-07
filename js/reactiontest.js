@@ -1,3 +1,5 @@
+'use strict';
+
 function div_color(){
     document.getElementById('thediv').style.background =
       '#'
