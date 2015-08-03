@@ -27,9 +27,7 @@ function start(){
 
     document.getElementById('thediv').style.background = '#000';
 
-    document.getElementById('start_button').onclick = function(){
-        stop();
-    };
+    document.getElementById('start_button').onclick = stop;
     document.getElementById('start_button').value = 'Click when the Color Changes [ESC]';
 }
 
@@ -54,9 +52,7 @@ function stop(){
         timer = 0;
     }
 
-    document.getElementById('start_button').onclick = function(){
-        start();
-    };
+    document.getElementById('start_button').onclick = start;
     document.getElementById('start_button').value = 'Start Timer [H]';
 }
 
