@@ -27,8 +27,8 @@ function start(){
 
     document.getElementById('thediv').style.background = '#000';
 
-    document.getElementById('start_button').onclick = stop;
-    document.getElementById('start_button').value = 'Click when the Color Changes [ESC]';
+    document.getElementById('start-button').onclick = stop;
+    document.getElementById('start-button').value = 'Click when the Color Changes [ESC]';
 }
 
 function stop(){
@@ -52,8 +52,8 @@ function stop(){
         timer = 0;
     }
 
-    document.getElementById('start_button').onclick = start;
-    document.getElementById('start_button').value = 'Start Timer [H]';
+    document.getElementById('start-button').onclick = start;
+    document.getElementById('start-button').value = 'Start Timer [H]';
 }
 
 var best = 0;
