@@ -21,7 +21,7 @@ function start(){
     start_time = new Date().getTime();
     change_time = 999 + Math.floor(Math.random() * 9000);
     timer = window.setTimeout(
-      'div_color()',
+      div_color,
       change_time
     );
 
