@@ -61,21 +61,21 @@ var change_time = 0;
 var start_time = 0;
 var timer = 0;
 
-window.onkeydown = function(e){
-    var key = e.keyCode || e.which;
-
-    // H: restart current game.
-    if(key === 72){
-        stop();
-        start();
-
-    // ESC: stop current game.
-    }else if(key === 27){
-        stop();
-    }
-};
-
 window.onload = function(e){
+    init_input(
+      {
+        27: {
+          'todo': stop,
+        },
+        72: {
+          'todo': function(){
+              stop();
+              start();
+          },
+        },
+      }
+    );
+
     // Fetch best from window.localStorage, if it exists.
     if(window.localStorage.getItem('ReactionTest.htm-best') !== null){
         best = window.localStorage.getItem('ReactionTest.htm-best');
