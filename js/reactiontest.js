@@ -9,11 +9,7 @@ function div_color(){
 }
 
 function reset(){
-    if(!window.confirm('Reset best?')){
-        return;
-    }
-
-    window.localStorage.removeItem('ReactionTest.htm-best');
+    reset_best();
     document.getElementById('best').innerHTML = '';
 }
 
@@ -62,6 +58,7 @@ var start_time = 0;
 var timer = 0;
 
 window.onload = function(e){
+    init_bests('ReactionTest.htm-');
     init_input(
       {
         27: {
@@ -76,9 +73,8 @@ window.onload = function(e){
       }
     );
 
-    // Fetch best from window.localStorage, if it exists.
-    if(window.localStorage.getItem('ReactionTest.htm-best') !== null){
-        best = window.localStorage.getItem('ReactionTest.htm-best');
+    // Setup best.
+    if(best !== 0){
         document.getElementById('best').innerHTML = '+' + best + 'ms';
     }
 };
