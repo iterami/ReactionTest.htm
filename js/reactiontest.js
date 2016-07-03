@@ -1,7 +1,7 @@
 'use strict';
 
 function div_color(){
-    document.getElementById('thediv').style.background =
+    document.getElementById('box').style.background =
       '#'
       + (4 + Math.floor(Math.random() * 5))
       + (4 + Math.floor(Math.random() * 5))
@@ -25,7 +25,7 @@ function start(){
       change_time
     );
 
-    document.getElementById('thediv').style.background = '#000';
+    document.getElementById('box').style.background = '#000';
 
     document.getElementById('start-button').onclick = stop;
     document.getElementById('start-button').value = 'Click when the Color Changes [ESC]';
