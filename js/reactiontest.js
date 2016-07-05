@@ -9,7 +9,7 @@ function div_color(){
 }
 
 function reset(){
-    reset_best();
+    bests_reset();
     document.getElementById('best').innerHTML = '';
 }
 
@@ -33,13 +33,13 @@ function stop(){
         clearTimeout(timer);
 
         if(final_time > 0
-          && (best === 0 || final_time < best)){
-            best = final_time;
+          && (bests_bests['time'] === 0 || final_time < bests_bests['time'])){
+            bests_bests['time'] = final_time;
             window.localStorage.setItem(
-              'ReactionTest.htm-best',
-              best
+              'ReactionTest.htm-time',
+              bests_bests['time']
             );
-            document.getElementById('best').innerHTML = '+' + best + 'ms';
+            document.getElementById('best').innerHTML = '+' + bests_bests['time'] + 'ms';
         }
 
         document.getElementById('result').innerHTML = final_time > 0
@@ -52,13 +52,17 @@ function stop(){
     document.getElementById('start-button').value = 'Start Timer [H]';
 }
 
-var best = 0;
 var change_time = 0;
 var start_time = 0;
 var timer = 0;
 
 window.onload = function(e){
-    init_bests('ReactionTest.htm-');
+    bests_init(
+      'ReactionTest.htm-',
+      {
+        'time': 0,
+      }
+    );
     init_input(
       {
         27: {
@@ -74,7 +78,7 @@ window.onload = function(e){
     );
 
     // Setup best.
-    if(best !== 0){
-        document.getElementById('best').innerHTML = '+' + best + 'ms';
+    if(bests_bests['time'] !== 0){
+        document.getElementById('best').innerHTML = '+' + bests_bests['time'] + 'ms';
     }
 };
