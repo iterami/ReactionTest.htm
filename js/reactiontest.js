@@ -63,7 +63,7 @@ window.onload = function(e){
         'time': 0,
       }
     );
-    init_input(
+    input_init(
       {
         27: {
           'todo': stop,
