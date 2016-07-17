@@ -3,9 +3,9 @@
 function div_color(){
     document.getElementById('box').style.background =
       '#'
-      + (4 + Math.floor(Math.random() * 5))
-      + (4 + Math.floor(Math.random() * 5))
-      + (4 + Math.floor(Math.random() * 5));
+      + (4 + random_integer(5))
+      + (4 + random_integer(5))
+      + (4 + random_integer(5));
 }
 
 function reset(){
@@ -15,7 +15,7 @@ function reset(){
 
 function start(){
     start_time = new Date().getTime();
-    change_time = 999 + Math.floor(Math.random() * 9000);
+    change_time = random_integer(9000) + 999;
     timer = window.setTimeout(
       div_color,
       change_time
