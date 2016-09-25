@@ -1,6 +1,8 @@
 'use strict';
 
 function div_color(){
+    audio_start('boop');
+
     document.getElementById('box').style.background =
       '#'
       + (4 + random_integer(5))
@@ -24,7 +26,7 @@ function start(){
     document.getElementById('box').style.background = '#000';
 
     document.getElementById('start-button').onclick = stop;
-    document.getElementById('start-button').value = 'Click when the Color Changes [ESC]';
+    document.getElementById('start-button').value = 'Stop Timer [ESC]';
 }
 
 function stop(){
@@ -74,6 +76,14 @@ window.onload = function(e){
               start();
           },
         },
+      }
+    );
+    audio_init();
+    audio_create(
+      'boop',
+      {
+        'duration': .1,
+        'volume': .1,
       }
     );
 
