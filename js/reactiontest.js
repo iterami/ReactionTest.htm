@@ -91,4 +91,7 @@ window.onload = function(e){
     if(bests_bests['time'] !== 0){
         document.getElementById('best').innerHTML = '+' + bests_bests['time'] + 'ms';
     }
+
+    document.getElementById('reset').onclick = reset;
+    document.getElementById('start-button').onclick = start;
 };
