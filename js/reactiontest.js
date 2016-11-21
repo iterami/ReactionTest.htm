@@ -11,8 +11,9 @@ function div_color(){
 }
 
 function reset(){
-    bests_reset();
-    document.getElementById('best').innerHTML = '';
+    if(bests_reset()){
+        document.getElementById('best').innerHTML = '';
+    }
 }
 
 function start(){
