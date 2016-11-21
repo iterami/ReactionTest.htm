@@ -34,12 +34,10 @@ function stop(){
         var final_time = -(change_time - (new Date().getTime() - start_time));
         clearTimeout(timer);
 
-        if(final_time > 0
-          && (bests_bests['time'] === 0 || final_time < bests_bests['time'])){
-            bests_bests['time'] = final_time;
-            window.localStorage.setItem(
-              'ReactionTest.htm-time',
-              bests_bests['time']
+        if(final_time > 0){
+            bests_update(
+              'time',
+              final_time
             );
             document.getElementById('best').innerHTML = '+' + bests_bests['time'] + 'ms';
         }
@@ -62,7 +60,10 @@ window.onload = function(e){
     bests_init(
       'ReactionTest.htm-',
       {
-        'time': 0,
+        'time': {
+          'default': 0,
+          'more': false,
+        },
       }
     );
     input_init(
