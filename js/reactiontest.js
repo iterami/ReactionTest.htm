@@ -65,7 +65,7 @@ window.onload = function(e){
       {
         'time': {
           'default': 0,
-          'more': false,
+          'less': true,
         },
       }
     );
