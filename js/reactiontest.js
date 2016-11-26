@@ -1,7 +1,9 @@
 'use strict';
 
 function div_color(){
-    audio_start('boop');
+    audio_start({
+      'id': 'boop',
+    });
 
     document.getElementById('box').style.background =
       '#'
@@ -81,13 +83,13 @@ window.onload = function(e){
       }
     );
     audio_init();
-    audio_create(
-      'boop',
-      {
+    audio_create({
+      'id': 'boop',
+      'properties': {
         'duration': .1,
         'volume': .1,
-      }
-    );
+      },
+    });
 
     // Setup best.
     if(bests_bests['time'] !== 0){
