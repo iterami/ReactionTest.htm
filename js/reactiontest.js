@@ -38,10 +38,10 @@ function stop(){
         clearTimeout(timer);
 
         if(final_time > 0){
-            bests_update(
-              'time',
-              final_time
-            );
+            bests_update({
+              'key': 'time',
+              'value': final_time,
+            });
             document.getElementById('best').innerHTML = '+' + bests_bests['time'] + 'ms';
         }
 
@@ -60,15 +60,15 @@ var start_time = 0;
 var timer = 0;
 
 window.onload = function(e){
-    bests_init(
-      'ReactionTest.htm-',
-      {
+    bests_init({
+      'bests': {
         'time': {
           'default': 0,
           'less': true,
         },
-      }
-    );
+      },
+      'prefix': 'ReactionTest.htm-',
+    });
     input_init(
       {
         27: {
