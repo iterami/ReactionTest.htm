@@ -77,8 +77,8 @@ window.onload = function(e){
       },
       'prefix': 'ReactionTest.htm-',
     });
-    input_init(
-      {
+    input_init({
+      'keybinds': {
         27: {
           'todo': stop,
         },
@@ -88,8 +88,8 @@ window.onload = function(e){
               start();
           },
         },
-      }
-    );
+      },
+    });
     audio_init();
     audio_create({
       'id': 'boop',
