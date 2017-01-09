@@ -20,7 +20,7 @@ function div_color(){
 
 function reset(){
     if(bests_reset()){
-        document.getElementById('best').innerHTML = '';
+        update_best();
     }
 }
 
@@ -63,6 +63,10 @@ function stop(){
     document.getElementById('start-button').value = 'Start Timer [H]';
 }
 
+function update_best(){
+    document.getElementById('best').innerHTML = '+' + bests_bests['time'] + 'ms';
+}
+
 var change_time = 0;
 var start_time = 0;
 var timer = 0;
@@ -71,7 +75,7 @@ window.onload = function(e){
     bests_init({
       'bests': {
         'time': {
-          'default': 0,
+          'default': 99999999,
           'less': true,
         },
       },
@@ -99,11 +103,7 @@ window.onload = function(e){
       },
     });
 
-    // Setup best.
-    if(bests_bests['time'] !== 0){
-        document.getElementById('best').innerHTML = '+' + bests_bests['time'] + 'ms';
-    }
-
+    update_best();
     document.getElementById('reset').onclick = reset;
     document.getElementById('start-button').onclick = start;
 };
