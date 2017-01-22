@@ -19,7 +19,9 @@ function div_color(){
 }
 
 function reset(){
-    if(bests_reset()){
+    if(storage_reset({
+      'bests': true,
+    })){
         update_best();
     }
 }
@@ -46,11 +48,9 @@ function stop(){
         clearTimeout(timer);
 
         if(final_time > 0){
-            bests_update({
-              'key': 'time',
-              'value': final_time,
-            });
-            document.getElementById('best').innerHTML = '+' + bests_bests['time'] + 'ms';
+            storage_data['time'] = final_time;
+            storage_save();
+            update_best();
         }
 
         document.getElementById('result').innerHTML = final_time > 0
@@ -64,7 +64,7 @@ function stop(){
 }
 
 function update_best(){
-    document.getElementById('best').innerHTML = '+' + bests_bests['time'] + 'ms';
+    document.getElementById('best').innerHTML = '+' + storage_info['time']['best'] + 'ms';
 }
 
 var change_time = 0;
@@ -72,15 +72,6 @@ var start_time = 0;
 var timer = 0;
 
 window.onload = function(e){
-    bests_init({
-      'bests': {
-        'time': {
-          'default': 99999999,
-          'less': true,
-        },
-      },
-      'prefix': 'ReactionTest.htm-',
-    });
     input_init({
       'keybinds': {
         27: {
@@ -93,6 +84,15 @@ window.onload = function(e){
           },
         },
       },
+    });
+    storage_init({
+      'data': {
+        'time': {
+          'default': 99999999,
+          'type': -1,
+        },
+      },
+      'prefix': 'ReactionTest.htm-',
     });
     audio_init();
     audio_create({
