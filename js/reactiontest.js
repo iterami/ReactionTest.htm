@@ -27,7 +27,7 @@ function reset(){
 }
 
 function start(){
-    start_time = new Date().getTime();
+    start_time = time_date_to_timestamp();
     change_time = random_integer({
       'max': 9000,
     }) + 999;
@@ -44,7 +44,7 @@ function start(){
 
 function stop(){
     if(timer !== 0){
-        var final_time = -(change_time - (new Date().getTime() - start_time));
+        var final_time = -(change_time - (time_date_to_timestamp() - start_time));
         clearTimeout(timer);
 
         if(final_time > 0){
