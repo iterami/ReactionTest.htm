@@ -5,17 +5,7 @@ function div_color(){
       'id': 'boop',
     });
 
-    document.getElementById('box').style.background =
-      '#'
-      + (4 + random_integer({
-          'max': 5,
-        }))
-      + (4 + random_integer({
-          'max': 5,
-        }))
-      + (4 + random_integer({
-          'max': 5,
-        }));
+    document.getElementById('box').style.background = '#' + random_hex();
 }
 
 function reset(){
