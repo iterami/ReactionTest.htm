@@ -9,11 +9,9 @@ function div_color(){
 }
 
 function reset(){
-    if(storage_reset({
+    storage_reset({
       'bests': true,
-    })){
-        update_best();
-    }
+    });
 }
 
 function start(){
@@ -40,7 +38,7 @@ function stop(){
         if(final_time > 0){
             storage_data['time'] = final_time;
             storage_save();
-            update_best();
+            storage_update();
         }
 
         document.getElementById('result').innerHTML = final_time > 0
@@ -51,10 +49,6 @@ function stop(){
 
     document.getElementById('start-button').onclick = start;
     document.getElementById('start-button').value = 'Start Timer [H]';
-}
-
-function update_best(){
-    document.getElementById('best').innerHTML = '+' + storage_info['time']['best'] + 'ms';
 }
 
 var change_time = 0;
@@ -93,7 +87,8 @@ window.onload = function(e){
       },
     });
 
-    update_best();
     document.getElementById('reset').onclick = reset;
     document.getElementById('start-button').onclick = start;
+
+    storage_update();
 };
