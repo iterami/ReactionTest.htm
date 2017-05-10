@@ -5,7 +5,7 @@ function div_color(){
       'id': 'boop',
     });
 
-    document.getElementById('box').style.background = '#' + random_hex();
+    document.getElementById('box').style.background = '#' + core_random_hex();
 }
 
 function reset(){
@@ -16,7 +16,7 @@ function reset(){
 
 function start(){
     start_time = time_date_to_timestamp();
-    change_time = random_integer({
+    change_time = core_random_integer({
       'max': 9000,
     }) + 999;
     timer = window.setTimeout(
