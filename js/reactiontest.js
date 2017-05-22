@@ -9,7 +9,7 @@ function div_color(){
 }
 
 function reset(){
-    storage_reset({
+    core_storage_reset({
       'bests': true,
     });
 }
@@ -36,9 +36,9 @@ function stop(){
         clearTimeout(timer);
 
         if(final_time > 0){
-            storage_data['time'] = final_time;
-            storage_save();
-            storage_update();
+            core_storage_data['time'] = final_time;
+            core_storage_save();
+            core_storage_update();
         }
 
         document.getElementById('result').innerHTML = final_time > 0
@@ -69,7 +69,7 @@ window.onload = function(e){
         },
       },
     });
-    storage_init({
+    core_storage_init({
       'data': {
         'time': {
           'default': 99999999,
@@ -90,5 +90,5 @@ window.onload = function(e){
     document.getElementById('reset').onclick = reset;
     document.getElementById('start-button').onclick = start;
 
-    storage_update();
+    core_storage_update();
 };
