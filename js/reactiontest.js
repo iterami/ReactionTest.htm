@@ -56,7 +56,7 @@ var start_time = 0;
 var timer = 0;
 
 window.onload = function(e){
-    input_init({
+    core_input_init({
       'keybinds': {
         27: {
           'todo': stop,
