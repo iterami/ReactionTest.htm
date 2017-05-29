@@ -8,6 +8,44 @@ function div_color(){
     document.getElementById('box').style.background = '#' + core_random_hex();
 }
 
+function repo_init(){
+    core_input_binds_add({
+      'keybinds': {
+        27: {
+          'todo': stop,
+        },
+        72: {
+          'todo': function(){
+              stop();
+              start();
+          },
+        },
+      },
+    });
+    core_storage_init({
+      'data': {
+        'time': {
+          'default': 99999999,
+          'type': -1,
+        },
+      },
+      'prefix': 'ReactionTest.htm-',
+    });
+    audio_init();
+    audio_create({
+      'id': 'boop',
+      'properties': {
+        'duration': .1,
+        'volume': .1,
+      },
+    });
+
+    document.getElementById('reset').onclick = reset;
+    document.getElementById('start-button').onclick = start;
+
+    core_storage_update();
+}
+
 function reset(){
     core_storage_reset({
       'bests': true,
@@ -54,41 +92,3 @@ function stop(){
 var change_time = 0;
 var start_time = 0;
 var timer = 0;
-
-window.onload = function(e){
-    core_input_init({
-      'keybinds': {
-        27: {
-          'todo': stop,
-        },
-        72: {
-          'todo': function(){
-              stop();
-              start();
-          },
-        },
-      },
-    });
-    core_storage_init({
-      'data': {
-        'time': {
-          'default': 99999999,
-          'type': -1,
-        },
-      },
-      'prefix': 'ReactionTest.htm-',
-    });
-    audio_init();
-    audio_create({
-      'id': 'boop',
-      'properties': {
-        'duration': .1,
-        'volume': .1,
-      },
-    });
-
-    document.getElementById('reset').onclick = reset;
-    document.getElementById('start-button').onclick = start;
-
-    core_storage_update();
-};
