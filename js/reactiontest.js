@@ -9,7 +9,16 @@ function div_color(){
 }
 
 function repo_init(){
-    core_input_binds_add({
+    core_storage_init({
+      'data': {
+        'time': {
+          'default': 99999999,
+          'type': -1,
+        },
+      },
+      'prefix': 'ReactionTest.htm-',
+    });
+    core_events_bind({
       'keybinds': {
         27: {
           'todo': stop,
@@ -21,15 +30,6 @@ function repo_init(){
           },
         },
       },
-    });
-    core_storage_init({
-      'data': {
-        'time': {
-          'default': 99999999,
-          'type': -1,
-        },
-      },
-      'prefix': 'ReactionTest.htm-',
     });
     audio_init();
     audio_create({
