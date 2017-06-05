@@ -8,6 +8,10 @@ function div_color(){
     document.getElementById('box').style.background = '#' + core_random_hex();
 }
 
+function repo_escape(){
+    stop();
+}
+
 function repo_init(){
     core_storage_init({
       'data': {
@@ -20,9 +24,6 @@ function repo_init(){
     });
     core_events_bind({
       'keybinds': {
-        27: {
-          'todo': stop,
-        },
         72: {
           'todo': function(){
               stop();
