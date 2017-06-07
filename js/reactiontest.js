@@ -13,14 +13,14 @@ function repo_escape(){
 }
 
 function repo_init(){
-    core_storage_init({
-      'data': {
+    core_repo_init({
+      'storage': {
         'time': {
           'default': 99999999,
           'type': -1,
         },
       },
-      'prefix': 'ReactionTest.htm-',
+      'title': 'ReactionTest.htm',
     });
     core_events_bind({
       'keybinds': {
