@@ -14,15 +14,6 @@ function repo_escape(){
 
 function repo_init(){
     core_repo_init({
-      'storage': {
-        'time': {
-          'default': 99999999,
-          'type': -1,
-        },
-      },
-      'title': 'ReactionTest.htm',
-    });
-    core_events_bind({
       'keybinds': {
         72: {
           'todo': function(){
@@ -31,6 +22,13 @@ function repo_init(){
           },
         },
       },
+      'storage': {
+        'time': {
+          'default': 99999999,
+          'type': -1,
+        },
+      },
+      'title': 'ReactionTest.htm',
     });
     audio_init();
     audio_create({
