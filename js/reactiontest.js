@@ -28,6 +28,7 @@ function repo_init(){
           'type': -1,
         },
       },
+      'storage-menu': '<a onclick=core_storage_reset({"bests":true,})>Reset Bests</a>',
       'title': 'ReactionTest.htm',
     });
     audio_init();
@@ -39,16 +40,9 @@ function repo_init(){
       },
     });
 
-    document.getElementById('reset').onclick = reset;
     document.getElementById('start-button').onclick = start;
 
     core_storage_update();
-}
-
-function reset(){
-    core_storage_reset({
-      'bests': true,
-    });
 }
 
 function start(){
