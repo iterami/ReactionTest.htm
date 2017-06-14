@@ -28,7 +28,6 @@ function repo_init(){
           'type': -1,
         },
       },
-      'storage-menu': '<a onclick=core_storage_reset({"bests":true,})>Reset Bests</a>',
       'title': 'ReactionTest.htm',
     });
     audio_init();
