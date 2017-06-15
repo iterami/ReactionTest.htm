@@ -1,7 +1,7 @@
 'use strict';
 
 function div_color(){
-    audio_start({
+    core_audio_start({
       'id': 'boop',
     });
 
@@ -30,12 +30,10 @@ function repo_init(){
       },
       'title': 'ReactionTest.htm',
     });
-    audio_init();
-    audio_create({
+    core_audio_create({
       'id': 'boop',
       'properties': {
         'duration': .1,
-        'volume': .1,
       },
     });
 
