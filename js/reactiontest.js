@@ -14,6 +14,11 @@ function repo_escape(){
 
 function repo_init(){
     core_repo_init({
+      'audios': {
+        'boop': {
+          'duration': .1,
+        },
+      },
       'keybinds': {
         72: {
           'todo': function(){
@@ -29,12 +34,6 @@ function repo_init(){
         },
       },
       'title': 'ReactionTest.htm',
-    });
-    core_audio_create({
-      'id': 'boop',
-      'properties': {
-        'duration': .1,
-      },
     });
 
     document.getElementById('start-button').onclick = start;
