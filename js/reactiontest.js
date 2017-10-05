@@ -53,8 +53,9 @@ function start(){
 
     document.getElementById('box').style.background = '#000';
 
-    document.getElementById('start-button').onclick = stop;
-    document.getElementById('start-button').value = 'Stop Timer [ESC]';
+    var element = document.getElementById('start-button');
+    element.onclick = stop;
+    element.value = 'Stop Timer [ESC]';
 }
 
 function stop(){
@@ -74,8 +75,9 @@ function stop(){
         timer = 0;
     }
 
-    document.getElementById('start-button').onclick = start;
-    document.getElementById('start-button').value = 'Start Timer [H]';
+    var element = document.getElementById('start-button');
+    element.onclick = start;
+    element.value = 'Start Timer [H]';
 }
 
 var change_time = 0;
