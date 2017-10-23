@@ -54,7 +54,3 @@ function stop(){
       },
     });
 }
-
-var change_time = 0;
-var start_time = 0;
-var timer = 0;
