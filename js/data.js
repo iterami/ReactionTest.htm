@@ -13,10 +13,13 @@ function start(){
     change_time = core_random_integer({
       'max': 9000,
     }) + 999;
-    timer = window.setTimeout(
-      div_color,
-      change_time
-    );
+    core_interval_modify({
+      'clear': 'clearTimeout',
+      'id': 'timer',
+      'interval': change_time,
+      'set': 'setTimeout',
+      'todo': div_color,
+    });
 
     document.getElementById('box').style.background = '#000';
 
@@ -30,9 +33,9 @@ function start(){
 }
 
 function stop(){
-    if(timer !== 0){
+    if(!core_intervals['timer']['paused']){
         var final_time = -(change_time - (time_date_to_timestamp() - start_time));
-        clearTimeout(timer);
+        core_interval_pause_all();
 
         if(final_time > 0){
             core_storage_data['time'] = final_time;
@@ -43,7 +46,6 @@ function stop(){
         document.getElementById('result').innerHTML = final_time > 0
           ? '+' + final_time + 'ms'
           : 'Too soon :(';
-        timer = 0;
     }
 
     core_html_modify({

@@ -1,9 +1,5 @@
 'use strict';
 
-function repo_escape(){
-    stop();
-}
-
 function repo_init(){
     core_repo_init({
       'audios': {
@@ -19,7 +15,6 @@ function repo_init(){
       'globals': {
         'change_time': 0,
         'start_time': 0,
-        'timer': 0,
       },
       'keybinds': {
         72: {
@@ -38,5 +33,5 @@ function repo_init(){
       'title': 'ReactionTest.htm',
     });
 
-    core_storage_update();
+    start();
 }
