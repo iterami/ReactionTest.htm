@@ -24,12 +24,6 @@ function repo_init(){
           },
         },
       },
-      'storage': {
-        'time': {
-          'default': 99999999,
-          'type': -1,
-        },
-      },
       'title': 'ReactionTest.htm',
     });
 

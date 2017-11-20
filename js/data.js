@@ -37,12 +37,6 @@ function stop(){
         var final_time = -(change_time - (time_date_to_timestamp() - start_time));
         core_interval_pause_all();
 
-        if(final_time > 0){
-            core_storage_data['time'] = final_time;
-            core_storage_save();
-            core_storage_update();
-        }
-
         document.getElementById('result').innerHTML = final_time > 0
           ? '+' + final_time + 'ms'
           : 'Too soon :(';
