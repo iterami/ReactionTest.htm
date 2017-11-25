@@ -9,6 +9,7 @@ function div_color(){
 }
 
 function start(){
+    running = true;
     start_time = core_date_to_timestamp();
     change_time = core_random_integer({
       'max': 9000,
@@ -33,14 +34,17 @@ function start(){
 }
 
 function stop(){
-    if(!core_intervals['timer']['paused']){
-        var final_time = -(change_time - (core_date_to_timestamp() - start_time));
-        core_interval_pause_all();
-
-        document.getElementById('result').innerHTML = final_time > 0
-          ? '+' + final_time + 'ms'
-          : 'Too soon :(';
+    if(!running){
+        return;
     }
+
+    running = false;
+    var final_time = -(change_time - (core_date_to_timestamp() - start_time));
+    core_interval_pause_all();
+
+    document.getElementById('result').innerHTML = final_time > 0
+      ? '+' + final_time + 'ms'
+      : 'Too soon :(';
 
     core_html_modify({
       'id': 'start-button',

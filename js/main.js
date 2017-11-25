@@ -1,5 +1,9 @@
 'use strict';
 
+function repo_escape(){
+    stop();
+}
+
 function repo_init(){
     core_repo_init({
       'audios': {
@@ -13,8 +17,9 @@ function repo_init(){
         },
       },
       'globals': {
-        'change_time': 0,
-        'start_time': 0,
+        'change_time': false,
+        'running': true,
+        'start_time': false,
       },
       'keybinds': {
         72: {
