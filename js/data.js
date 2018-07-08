@@ -39,7 +39,7 @@ function stop(){
     }
 
     running = false;
-    var final_time = -(change_time - (core_date_to_timestamp() - start_time));
+    let final_time = -(change_time - (core_date_to_timestamp() - start_time));
     core_interval_pause_all();
 
     document.getElementById('result').innerHTML = final_time > 0
