@@ -6,11 +6,6 @@ function repo_escape(){
 
 function repo_init(){
     core_repo_init({
-      'audios': {
-        'boop': {
-          'duration': .1,
-        },
-      },
       'events': {
         'start-button': {
           'onclick': start,
@@ -30,6 +25,13 @@ function repo_init(){
         },
       },
       'title': 'ReactionTest.htm',
+    });
+    audio_create({
+      'audios': {
+        'boop': {
+          'duration': .1,
+        },
+      },
     });
 
     start();

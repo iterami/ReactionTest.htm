@@ -1,7 +1,7 @@
 'use strict';
 
 function div_color(){
-    core_audio_start({
+    audio_start({
       'id': 'boop',
     });
 
