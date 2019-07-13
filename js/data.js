@@ -44,7 +44,7 @@ function stop(){
 
     document.getElementById('result').innerHTML = final_time > 0
       ? '+' + final_time + 'ms'
-      : 'Too soon :(';
+      : 'Too soon!';
 
     core_html_modify({
       'id': 'start-button',
