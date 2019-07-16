@@ -10,7 +10,7 @@ function div_color(){
 
 function start(){
     running = true;
-    start_time = core_date_to_timestamp();
+    start_time = date_to_timestamp();
     change_time = core_random_integer({
       'max': 9000,
     }) + 999;
@@ -39,7 +39,7 @@ function stop(){
     }
 
     running = false;
-    let final_time = -(change_time - (core_date_to_timestamp() - start_time));
+    let final_time = -(change_time - (date_to_timestamp() - start_time));
     core_interval_pause_all();
 
     document.getElementById('result').innerHTML = final_time > 0
