@@ -8,7 +8,7 @@ function repo_init(){
     core_repo_init({
       'events': {
         'start-button': {
-          'onclick': start,
+          'onclick': core_repo_reset,
         },
       },
       'globals': {
@@ -16,13 +16,13 @@ function repo_init(){
         'running': true,
         'start_time': false,
       },
-      'keybinds': {
-        72: {
-          'todo': function(){
-              stop();
-              start();
-          },
-        },
+      'reset': function(){
+          stop();
+          start();
+
+          if(core_menu_open){
+              core_escape();
+          }
       },
       'title': 'ReactionTest.htm',
     });
