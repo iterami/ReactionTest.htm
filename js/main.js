@@ -18,11 +18,10 @@ function repo_init(){
       },
       'reset': function(){
           stop();
-          start();
-
           if(core_menu_open){
               core_escape();
           }
+          start();
       },
       'title': 'ReactionTest.htm',
     });
