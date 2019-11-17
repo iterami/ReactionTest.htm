@@ -28,7 +28,7 @@ function start(){
       'id': 'start-button',
       'properties': {
         'onclick': stop,
-        'value': 'Stop Timer [ESC]',
+        'value': 'Stop Timer',
       },
     });
 }
@@ -50,7 +50,7 @@ function stop(){
       'id': 'start-button',
       'properties': {
         'onclick': start,
-        'value': 'Start Timer [H]',
+        'value': 'Start Timer',
       },
     });
 }
