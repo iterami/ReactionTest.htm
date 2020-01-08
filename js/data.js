@@ -42,7 +42,7 @@ function stop(){
     let final_time = -(change_time - (date_to_timestamp() - start_time));
     core_interval_pause_all();
 
-    document.getElementById('result').innerHTML = final_time > 0
+    document.getElementById('result').textContent = final_time > 0
       ? '+' + final_time + 'ms'
       : 'Too soon!';
 
