@@ -5,7 +5,7 @@ function div_color(){
       'id': 'boop',
     });
 
-    document.getElementById('box').style.background = '#' + core_random_hex();
+    document.getElementById('box').style.backgroundColor = '#' + core_random_hex();
 }
 
 function start(){
@@ -22,7 +22,7 @@ function start(){
       'todo': div_color,
     });
 
-    document.getElementById('box').style.background = '#000';
+    document.getElementById('box').style.backgroundColor = '#000';
 
     core_html_modify({
       'id': 'start-button',
