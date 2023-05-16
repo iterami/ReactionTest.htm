@@ -15,7 +15,6 @@ function start(){
       'max': 9000,
     }) + 999;
     core_interval_modify({
-      'clear': 'clearTimeout',
       'id': 'timer',
       'interval': change_time,
       'set': 'setTimeout',
