@@ -8,6 +8,29 @@ function div_color(){
     document.getElementById('box').style.backgroundColor = '#' + core_random_hex();
 }
 
+function repo_init(){
+    core_repo_init({
+      'events': {
+        'start-button': {
+          'onclick': start,
+        },
+      },
+      'globals': {
+        'change_time': false,
+        'running': true,
+        'start_time': false,
+      },
+      'title': 'ReactionTest.htm',
+    });
+    audio_create({
+      'audios': {
+        'boop': {
+          'duration': .1,
+        },
+      },
+    });
+}
+
 function start(){
     running = true;
     start_time = date_to_timestamp();
