@@ -1,11 +1,17 @@
 'use strict';
 
-function div_color(){
-    audio_start({
-      'id': 'boop',
-    });
+function end_timer(){
+    if(core_storage_data['audio']){
+        audio_start({
+          'id': 'boop',
+        });
+    }
 
     document.getElementById('box').style.backgroundColor = '#' + core_random_hex();
+}
+
+function repo_escape(){
+    reset();
 }
 
 function repo_init(){
@@ -20,6 +26,10 @@ function repo_init(){
         'running': true,
         'start_time': false,
       },
+      'storage': {
+        'audio': true,
+      },
+      'storage-menu': '<table><tr><td><input id=audio type=checkbox><td>Audio</table>',
       'title': 'ReactionTest.htm',
     });
     audio_create({
@@ -31,9 +41,21 @@ function repo_init(){
     });
 }
 
+function reset(){
+    core_interval_pause_all();
+    running = false;
+    core_html_modify({
+      'id': 'start-button',
+      'properties': {
+        'onclick': start,
+        'value': 'Start Timer',
+      },
+    });
+}
+
 function start(){
-    running = true;
     start_time = date_to_timestamp();
+    running = true;
     change_time = core_random_integer({
       'max': 9000,
     }) + 999;
@@ -41,7 +63,7 @@ function start(){
       'id': 'timer',
       'interval': change_time,
       'set': 'setTimeout',
-      'todo': div_color,
+      'todo': end_timer,
     });
 
     document.getElementById('box').style.backgroundColor = '#000';
@@ -60,19 +82,10 @@ function stop(){
         return;
     }
 
-    running = false;
-    const final_time = -(change_time - (date_to_timestamp() - start_time));
-    core_interval_pause_all();
+    reset();
 
+    const final_time = -(change_time - (date_to_timestamp() - start_time));
     document.getElementById('result').textContent = final_time > 0
       ? '+' + final_time + 'ms'
       : 'Too soon!';
-
-    core_html_modify({
-      'id': 'start-button',
-      'properties': {
-        'onclick': start,
-        'value': 'Start Timer',
-      },
-    });
 }
