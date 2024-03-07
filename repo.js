@@ -2,9 +2,7 @@
 
 function end_timer(){
     if(core_storage_data['audio']){
-        audio_start({
-          'id': 'boop',
-        });
+        audio_start('boop');
     }
 
     document.getElementById('box').style.backgroundColor = '#' + core_random_hex();
@@ -31,13 +29,6 @@ function repo_init(){
       },
       'storage-menu': '<table><tr><td><input id=audio type=checkbox><td>Audio</table>',
       'title': 'ReactionTest.htm',
-    });
-    audio_create({
-      'audios': {
-        'boop': {
-          'duration': .1,
-        },
-      },
     });
 }
 
