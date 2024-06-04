@@ -5,7 +5,7 @@ function end_timer(){
         audio_start('boop');
     }
 
-    document.getElementById('box').style.backgroundColor = '#' + core_random_hex();
+    core_elements['box'].style.backgroundColor = '#' + core_random_hex();
 }
 
 function repo_escape(){
@@ -29,6 +29,10 @@ function repo_init(){
       },
       'storage-menu': '<table><tr><td><input id=audio type=checkbox><td>Audio</table>',
       'title': 'ReactionTest.htm',
+      'ui-elements': [
+        'box',
+        'result',
+      ],
     });
 }
 
@@ -57,7 +61,7 @@ function start(){
       'todo': end_timer,
     });
 
-    document.getElementById('box').style.backgroundColor = '#000';
+    core_elements['box'].style.backgroundColor = '#000';
 
     core_html_modify({
       'id': 'start-button',
@@ -76,7 +80,7 @@ function stop(){
     reset();
 
     const final_time = -(change_time - (date_to_timestamp() - start_time));
-    document.getElementById('result').textContent = final_time > 0
+    core_elements['result'].textContent = final_time > 0
       ? '+' + final_time + 'ms'
       : 'Too soon!';
 }
