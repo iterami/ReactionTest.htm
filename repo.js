@@ -32,6 +32,7 @@ function repo_init(){
       'ui-elements': [
         'box',
         'result',
+        'start-button',
       ],
     });
 }
@@ -39,13 +40,13 @@ function repo_init(){
 function reset(){
     core_interval_pause_all();
     running = false;
-    core_html_modify({
-      'id': 'start-button',
-      'properties': {
+    Object.assign(
+      core_elements['start-button'],
+      {
         'onclick': start,
         'textContent': 'Start Timer',
-      },
-    });
+      }
+    );
 }
 
 function start(){
@@ -63,13 +64,13 @@ function start(){
 
     core_elements['box'].style.backgroundColor = '#000';
 
-    core_html_modify({
-      'id': 'start-button',
-      'properties': {
+    Object.assign(
+      core_elements['start-button'],
+      {
         'onclick': stop,
         'textContent': 'Stop Timer',
-      },
-    });
+      }
+    );
 }
 
 function stop(){
