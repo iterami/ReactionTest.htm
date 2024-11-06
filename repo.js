@@ -21,7 +21,6 @@ function repo_init(){
       },
       'globals': {
         'change_time': false,
-        'running': true,
         'start_time': false,
       },
       'storage': {
@@ -39,7 +38,6 @@ function repo_init(){
 
 function reset(){
     core_interval_pause_all();
-    running = false;
     Object.assign(
       core_elements['start-button'],
       {
@@ -51,7 +49,6 @@ function reset(){
 
 function start(){
     start_time = date_to_timestamp();
-    running = true;
     change_time = core_random_integer({
       'max': 9000,
     }) + 999;
@@ -74,7 +71,7 @@ function start(){
 }
 
 function stop(){
-    if(!running){
+    if(core_intervals['timer']['paused']){
         return;
     }
 
