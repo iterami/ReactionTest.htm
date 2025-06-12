@@ -49,9 +49,7 @@ function reset(){
 
 function start(){
     start_time = date_to_timestamp();
-    change_time = core_random_integer({
-      'max': 9000,
-    }) + 999;
+    change_time = core_random_integer(9000) + 999;
     core_interval_modify({
       'id': 'timer',
       'interval': change_time,
