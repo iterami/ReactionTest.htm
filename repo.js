@@ -1,11 +1,11 @@
 'use strict';
 
 function end_timer(){
-    if(core_storage_data['audio']){
+    if(core_storage_data.audio){
         audio_start('boop');
     }
 
-    core_elements['box'].style.backgroundColor = '#' + core_random_hex();
+    core_elements.box.style.backgroundColor = '#' + core_random_hex();
 }
 
 function repo_escape(){
@@ -15,7 +15,7 @@ function repo_escape(){
 function repo_init(){
     core_repo_init({
       'events': {
-        'start-button': {
+        'start': {
           'onclick': start,
         },
       },
@@ -31,7 +31,7 @@ function repo_init(){
       'ui-elements': [
         'box',
         'result',
-        'start-button',
+        'start',
       ],
     });
 }
@@ -39,7 +39,7 @@ function repo_init(){
 function reset(){
     core_interval_pause_all();
     Object.assign(
-      core_elements['start-button'],
+      core_elements.start,
       {
         'onclick': start,
         'textContent': 'Start Timer',
@@ -57,10 +57,10 @@ function start(){
       'todo': end_timer,
     });
 
-    core_elements['box'].style.backgroundColor = '#000';
+    core_elements.box.style.backgroundColor = '#000';
 
     Object.assign(
-      core_elements['start-button'],
+      core_elements.start,
       {
         'onclick': stop,
         'textContent': 'Stop Timer',
@@ -69,14 +69,14 @@ function start(){
 }
 
 function stop(){
-    if(core_intervals['timer']['paused']){
+    if(core_intervals.timer.paused){
         return;
     }
 
     reset();
 
     const final_time = -(change_time - (date_to_timestamp() - start_time));
-    core_elements['result'].textContent = final_time > 0
+    core_elements.result.textContent = final_time > 0
       ? '+' + final_time + 'ms'
       : 'Too soon!';
 }
