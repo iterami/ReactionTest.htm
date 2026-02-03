@@ -20,8 +20,8 @@ function repo_init(){
         },
       },
       'globals': {
-        'change_time': false,
-        'start_time': false,
+        'change_time': 0,
+        'start_time': 0,
       },
       'storage': {
         'audio': true,
@@ -48,8 +48,8 @@ function reset(){
 }
 
 function start(){
-    start_time = date_to_timestamp();
     change_time = core_random_integer(9000) + 999;
+    start_time = date_to_timestamp();
     core_interval_modify({
       'id': 'timer',
       'interval': change_time,
