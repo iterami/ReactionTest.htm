@@ -26,7 +26,7 @@ function repo_init(){
       'storage': {
         'audio': true,
       },
-      'storage_menu': '<table><tr><td><input id=audio type=checkbox><td>Audio</table>',
+      'storage_menu': '<table><tr><td><input id=audio type=checkbox><td><label for=audio>Audio</label></table>',
       'title': 'ReactionTest.htm',
       'ui_elements': [
         'box',
