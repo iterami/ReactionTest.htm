@@ -1,10 +1,7 @@
 'use strict';
 
 function end_timer(){
-    if(core_storage_data.audio){
-        audio_start('boop');
-    }
-
+    audio_start('boop');
     core_elements.box.style.backgroundColor = '#' + core_random_hex();
 }
 
@@ -23,10 +20,6 @@ function repo_init(){
         'change_time': 0,
         'start_time': 0,
       },
-      'storage': {
-        'audio': true,
-      },
-      'storage_menu': '<table><tr><td><input id=audio type=checkbox><td><label for=audio>Audio</label></table>',
       'title': 'ReactionTest.htm',
       'ui_elements': [
         'box',
