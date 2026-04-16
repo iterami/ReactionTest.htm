@@ -6,6 +6,8 @@ function end_timer(){
 }
 
 function repo_escape(){
+    audio_state_all(!core_menu_open);
+
     if(core_menu_open){
         reset();
     }
