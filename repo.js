@@ -6,7 +6,9 @@ function end_timer(){
 }
 
 function repo_escape(){
-    reset();
+    if(core_menu_open){
+        reset();
+    }
 }
 
 function repo_init(){
@@ -30,7 +32,7 @@ function repo_init(){
 }
 
 function reset(){
-    core_interval_pause_all();
+    core_interval_lock('timer');
     Object.assign(
       core_elements.start,
       {
@@ -41,6 +43,17 @@ function reset(){
 }
 
 function start(){
+    core_escape(false);
+
+    core_elements.box.style.backgroundColor = '#000';
+    Object.assign(
+      core_elements.start,
+      {
+        'onclick': stop,
+        'textContent': 'Stop Timer',
+      }
+    );
+
     change_time = core_random_integer(9000) + 999;
     start_time = date_to_timestamp();
     core_interval_modify({
@@ -49,16 +62,6 @@ function start(){
       'set': 'setTimeout',
       'todo': end_timer,
     });
-
-    core_elements.box.style.backgroundColor = '#000';
-
-    Object.assign(
-      core_elements.start,
-      {
-        'onclick': stop,
-        'textContent': 'Stop Timer',
-      }
-    );
 }
 
 function stop(){
