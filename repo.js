@@ -34,7 +34,7 @@ function repo_init(){
 }
 
 function reset(){
-    core_interval_lock('timer');
+    core_interval_lock_all();
     Object.assign(
       core_elements.start,
       {
